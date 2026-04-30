@@ -139,6 +139,11 @@
                   "detail": {
                     "route": "WeaponsObjectPage"
                   }
+                },
+                "mentor": {
+                  "detail": {
+                    "route": "CharactersObjectPage"
+                  }
                 }
               }
             }

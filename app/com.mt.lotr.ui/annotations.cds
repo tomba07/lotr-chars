@@ -1,5 +1,11 @@
 using LotrService as service from '../../srv/lotr-service';
 
+// Text annotations so FE shows names instead of GUIDs
+annotate service.Characters with {
+    mentor @Common.Text: name  @Common.TextArrangement: #TextOnly;
+    ring   @Common.Text: name  @Common.TextArrangement: #TextOnly;
+};
+
 annotate service.Characters with @(
     UI.PresentationVariant : {
         SortOrder      : [{ Property : fame, Descending : true }],
@@ -36,9 +42,9 @@ annotate service.Characters with @(
     UI.FieldGroup #Relations : {
         $Type : 'UI.FieldGroupType',
         Data : [
-            { $Type : 'UI.DataField', Value : fellowship,  Label : 'Member of Fellowship' },
-            { $Type : 'UI.DataField', Value : mentor_ID,   Label : 'Mentor'               },
-            { $Type : 'UI.DataField', Value : ring_ID,     Label : 'Ring'                 },
+            { $Type : 'UI.DataField',                   Value  : fellowship,  Label : 'Member of Fellowship' },
+            { $Type : 'UI.DataFieldWithNavigationPath', Value  : mentor_ID,   Label : 'Mentor', Target : 'mentor' },
+            { $Type : 'UI.DataField',                   Value  : ring_ID,     Label : 'Ring'                 },
         ],
     },
 
