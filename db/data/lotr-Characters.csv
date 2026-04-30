@@ -1,0 +1,13 @@
+ID,name,race,realm,fellowship,description
+11111111-0000-0000-0000-000000000001,Frodo Baggins,Hobbit,The Shire,true,Ring-bearer and hero of the War of the Ring.
+11111111-0000-0000-0000-000000000002,Samwise Gamgee,Hobbit,The Shire,true,Frodo's loyal gardener and companion.
+11111111-0000-0000-0000-000000000003,Gandalf,Wizard,Valinor,true,Maia spirit and guide of the Fellowship.
+11111111-0000-0000-0000-000000000004,Aragorn,Man,Gondor,true,Heir of Isildur and rightful King of Gondor.
+11111111-0000-0000-0000-000000000005,Legolas,Elf,Mirkwood,true,Prince of the Woodland Realm and skilled archer.
+11111111-0000-0000-0000-000000000006,Gimli,Dwarf,Lonely Mountain,true,Son of Glóin and stout-hearted member of the Fellowship.
+11111111-0000-0000-0000-000000000007,Boromir,Man,Gondor,true,Son of the Steward of Gondor and valiant warrior.
+11111111-0000-0000-0000-000000000008,Meriadoc Brandybuck,Hobbit,The Shire,true,Merry - one of Frodo's closest friends.
+11111111-0000-0000-0000-000000000009,Peregrin Took,Hobbit,The Shire,true,Pippin - young and curious hobbit of the Fellowship.
+11111111-0000-0000-0000-000000000010,Sauron,Maiar,Mordor,false,The Dark Lord and maker of the One Ring.
+11111111-0000-0000-0000-000000000011,Galadriel,Elf,Lothlórien,false,Lady of the Golden Wood and bearer of Nenya.
+11111111-0000-0000-0000-000000000012,Saruman,Wizard,Isengard,false,Head of the Istari order corrupted by the Ring's power.
