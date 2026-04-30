@@ -11,12 +11,14 @@
   },
   "devDependencies": {
     "@sap/cds-dk": "^8",
-    "sqlite3": "^5"
+    "sqlite3": "^5",
+    "cds-plugin-ui5": "^0.13.0"
   },
   "scripts": {
     "start": "cds-serve",
     "dev": "cds watch",
-    "build": "cds build"
+    "build": "cds build",
+    "watch-com.mt.lotr.ui": "cds watch --open com.mt.lotr.ui/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "cds": {
     "requires": {
@@ -27,5 +29,11 @@
         }
       }
     }
-  }
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/com.mt.lotr.ui"
+  ]
 }

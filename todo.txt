@@ -1,0 +1,5 @@
+- deployment
+- fame column
+- admin screen
+ - perform actions on them
+- custom content
