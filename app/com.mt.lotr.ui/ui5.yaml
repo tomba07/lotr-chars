@@ -1,7 +1,5 @@
 # yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
 
-# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
-
 specVersion: "4.0"
 metadata:
   name: com.mt.lotr.ui
@@ -22,7 +20,7 @@ server:
       configuration:
         port: 35729
         path: webapp
-        delay: 300
+        delay: 1000
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
