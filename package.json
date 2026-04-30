@@ -7,15 +7,15 @@
   },
   "dependencies": {
     "@sap/cds": "^8",
-    "express": "^4"
+    "express": "^4",
+    "sqlite3": "^5"
   },
   "devDependencies": {
     "@sap/cds-dk": "^8",
-    "sqlite3": "^5",
     "cds-plugin-ui5": "^0.13.0"
   },
   "scripts": {
-    "start": "cds-serve",
+    "start": "node server.js",
     "dev": "cds watch",
     "build": "cds build",
     "watch-com.mt.lotr.ui": "cds watch --open com.mt.lotr.ui/index.html?sap-ui-xx-viewCache=false --livereload false"
