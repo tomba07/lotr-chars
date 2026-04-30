@@ -3,67 +3,27 @@ annotate service.Characters with @(
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
         Data : [
-            {
-                $Type : 'UI.DataField',
-                Label : 'name',
-                Value : name,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'race',
-                Value : race,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'realm',
-                Value : realm,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'fellowship',
-                Value : fellowship,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'description',
-                Value : description,
-            },
+            { $Type : 'UI.DataField', Value : name },
+            { $Type : 'UI.DataField', Value : race },
+            { $Type : 'UI.DataField', Value : realm },
+            { $Type : 'UI.DataField', Value : fellowship },
+            { $Type : 'UI.DataField', Value : description },
         ],
     },
     UI.Facets : [
         {
-            $Type : 'UI.ReferenceFacet',
-            ID : 'GeneratedFacet1',
-            Label : 'General Information',
+            $Type  : 'UI.ReferenceFacet',
+            ID     : 'GeneratedFacet1',
+            Label  : 'General Information',
             Target : '@UI.FieldGroup#GeneratedGroup',
         },
     ],
     UI.LineItem : [
-        {
-            $Type : 'UI.DataField',
-            Label : 'name',
-            Value : name,
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'race',
-            Value : race,
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'realm',
-            Value : realm,
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'fellowship',
-            Value : fellowship,
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'description',
-            Value : description,
-        },
+        { $Type : 'UI.DataField', Value : name,       Label: 'Name'        },
+        { $Type : 'UI.DataField', Value : race,       Label: 'Race'        },
+        { $Type : 'UI.DataField', Value : realm,      Label: 'Realm'       },
+        { $Type : 'UI.DataField', Value : fellowship, Label: 'Fellowship'  },
+        { $Type : 'UI.DataField', Value : description,Label: 'Description' },
     ],
 );
 
