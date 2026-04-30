@@ -6,7 +6,12 @@ entity Characters {
   race          : String(50)            @title: 'Race';
   realm         : String(100)           @title: 'Realm';
   fellowship    : Boolean default false @title: 'Fellowship';
+  fame          : Integer                       @title: 'Fame';
+  status        : String(20)            @title: 'Status';
+  allegiance    : String(20)            @title: 'Allegiance';
   description   : String(500)           @title: 'Description';
+  mentor        : Association to Characters;
+  ring          : Association to Rings;
   weapons       : Composition of many Weapons on weapons.character = $self;
 }
 
@@ -16,4 +21,10 @@ entity Weapons {
   type          : String(50)            @title: 'Type';
   description   : String(300)           @title: 'Description';
   character     : Association to Characters;
+}
+
+entity Rings {
+  key ID          : UUID;
+  name            : String(100) not null  @title: 'Name';
+  description     : String(300)           @title: 'Description';
 }
