@@ -15,6 +15,17 @@ entity Characters {
   weapons       : Composition of many Weapons on weapons.character = $self;
 }
 
+annotate Characters with {
+  mentor @(
+    Common.Text: mentor.name,
+    Common.TextArrangement: #TextOnly
+  );
+  ring @(
+    Common.Text: ring.name,
+    Common.TextArrangement: #TextOnly
+  );
+}
+
 entity Weapons {
   key ID        : UUID;
   name          : String(100) not null  @title: 'Name';

@@ -1,11 +1,5 @@
 using LotrService as service from '../../srv/lotr-service';
 
-// Text annotations so FE shows names instead of GUIDs
-annotate service.Characters with {
-    mentor @Common.Text: name  @Common.TextArrangement: #TextOnly;
-    ring   @Common.Text: name  @Common.TextArrangement: #TextOnly;
-};
-
 annotate service.Characters with @(
     UI.PresentationVariant : {
         SortOrder      : [{ Property : fame, Descending : true }],

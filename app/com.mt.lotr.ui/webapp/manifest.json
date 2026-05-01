@@ -94,6 +94,11 @@
           "target": "CharactersObjectPage"
         },
         {
+          "pattern": "Characters({key})/mentor:?query:",
+          "name": "MentorObjectPage",
+          "target": "MentorObjectPage"
+        },
+        {
           "pattern": "Characters({key})/weapons({key2}):?query:",
           "name": "WeaponsObjectPage",
           "target": "WeaponsObjectPage"
@@ -142,7 +147,7 @@
                 },
                 "mentor": {
                   "detail": {
-                    "route": "CharactersObjectPage"
+                    "route": "MentorObjectPage"
                   }
                 }
               }
@@ -157,6 +162,17 @@
             "settings": {
               "editableHeaderContent": false,
               "contextPath": "/Characters/weapons"
+            }
+          }
+        },
+        "MentorObjectPage": {
+          "type": "Component",
+          "id": "MentorObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Characters/mentor"
             }
           }
         }

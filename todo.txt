@@ -3,3 +3,11 @@
 - admin screen
  - perform actions on them
 - custom content
+- features
+ - filters
+ - sorting
+ - actions
+ - CRUD
+ - draft
+ - variants
+ - 
