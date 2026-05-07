@@ -29,7 +29,8 @@ annotate service.Characters with @(
         TypeName       : 'Character',
         TypeNamePlural : 'Characters',
         Title          : { Value : name },
-        Description    : { Value : description }
+        Description    : { Value : description },
+        Initials       : initials,
     },
 
     // ─── Header Facets ───────────────────────────────────────────────
@@ -131,6 +132,12 @@ annotate service.Characters with @(
         },
         {
             $Type  : 'UI.ReferenceFacet',
+            ID     : 'Address',
+            Label  : 'Address',
+            Target : 'address/@UI.FieldGroup#Address',
+        },
+        {
+            $Type  : 'UI.ReferenceFacet',
             ID     : 'Weapons',
             Label  : 'Weapons',
             Target : 'weapons/@UI.LineItem',
@@ -151,9 +158,58 @@ annotate service.Characters with @(
 );
 
 annotate service.Weapons with @(
+    UI.HeaderInfo : {
+        TypeName       : 'Weapon',
+        TypeNamePlural : 'Weapons',
+        Title          : { Value : name },
+        Description    : { Value : type },
+    },
+
+    UI.FieldGroup #Details : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            { $Type : 'UI.DataField', Value : name,        Label : 'Name'        },
+            { $Type : 'UI.DataField', Value : type,        Label : 'Type'        },
+            { $Type : 'UI.DataField', Value : description, Label : 'Description' },
+        ],
+    },
+
+    UI.Facets : [
+        {
+            $Type  : 'UI.ReferenceFacet',
+            ID     : 'Details',
+            Label  : 'Details',
+            Target : '@UI.FieldGroup#Details',
+        },
+        {
+            $Type  : 'UI.ReferenceFacet',
+            ID     : 'Materials',
+            Label  : 'Materials',
+            Target : 'materials/@UI.LineItem',
+        },
+    ],
+
     UI.LineItem : [
         { $Type : 'UI.DataField', Value : name,        Label : 'Name'        },
         { $Type : 'UI.DataField', Value : type,        Label : 'Type'        },
         { $Type : 'UI.DataField', Value : description, Label : 'Description' },
     ],
+);
+
+annotate service.Materials with @(
+    UI.LineItem : [
+        { $Type : 'UI.DataField', Value : name,        Label : 'Material'    },
+        { $Type : 'UI.DataField', Value : description, Label : 'Description' },
+    ],
+);
+
+annotate service.Address with @(
+    UI.FieldGroup #Address : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            { $Type : 'UI.DataField', Value : dwelling,   Label : 'Dwelling'   },
+            { $Type : 'UI.DataField', Value : settlement, Label : 'Settlement' },
+            { $Type : 'UI.DataField', Value : region,     Label : 'Region'     },
+        ],
+    },
 );

@@ -14,12 +14,17 @@ service LotrService @(path: '/lotr') {
     100 as strengthMax: Integer,
   };
 
-  entity Weapons as projection on lotr.Weapons;
+  entity Weapons as projection on lotr.Weapons {
+    *, character : redirected to Characters
+  };
+
+  entity Materials as projection on lotr.Materials;
 
   entity Rings as projection on lotr.Rings;
 
   @readonly entity Races       as projection on lotr.Races;
   @readonly entity Allegiances as projection on lotr.Allegiances;
+  entity Address               as projection on lotr.Address;
 
   // Convenience read-only view: Fellowship members only
   @readonly

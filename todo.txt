@@ -6,8 +6,6 @@
   - map feature
  - images / thumbnails
  - actions
- - filters
- - sorting
  - CRUD
  - draft
   - think of use cases
@@ -15,3 +13,9 @@
  
 - admin screen
  - perform actions on them
+
+- properties
+ - movies which they participate in
+ - birthplace
+ - address
+ - foods
