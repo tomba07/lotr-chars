@@ -55,6 +55,42 @@ module.exports = class LotrService extends cds.ApplicationService {
 
     // ── Team actions ─────────────────────────────────────────────────────
 
+    const charIDofMember = async (memberKey) => {
+      const memberID = memberKey?.ID ?? memberKey;
+      const m = await SELECT.one.from('lotr.TeamMembers', ['character_ID']).where({ ID: memberID });
+      return m?.character_ID;
+    };
+
+    this.on('resurrect', TeamMembers, async (req) => {
+      const charID = await charIDofMember(req.params[0]);
+      const char   = await SELECT.one.from('lotr.Characters').where({ ID: charID });
+      if (!char)                  return req.error(404, 'Character not found');
+      if (char.status !== 'Dead') return req.error(400, `${char.name} is not dead`);
+      await cds.db.run(UPDATE('lotr.Characters', charID).set({ status: 'Alive' }));
+    });
+
+    this.on('kill', TeamMembers, async (req) => {
+      const charID = await charIDofMember(req.params[0]);
+      const char   = await SELECT.one.from('lotr.Characters').where({ ID: charID });
+      if (!char)                  return req.error(404, 'Character not found');
+      if (char.status === 'Dead') return req.error(400, `${char.name} is already dead`);
+      await cds.db.run(UPDATE('lotr.Characters', charID).set({ status: 'Dead' }));
+    });
+
+    this.on('changeAllegiance', TeamMembers, async (req) => {
+      const charID     = await charIDofMember(req.params[0]);
+      const { allegiance } = req.data;
+      if (!allegiance) return req.error(400, 'Allegiance is required');
+      await cds.db.run(UPDATE('lotr.Characters', charID).set({ allegiance }));
+    });
+
+    this.on('assignMentor', TeamMembers, async (req) => {
+      const charID     = await charIDofMember(req.params[0]);
+      const { mentorId } = req.data;
+      if (mentorId === charID) return req.error(400, 'A character cannot mentor themselves');
+      await cds.db.run(UPDATE('lotr.Characters', charID).set({ mentor_ID: mentorId }));
+    });
+
     this.on('disbandTeam', Teams, async (req) => {
       const { ID } = req.params[0];
       await DELETE.from(TeamMembers).where({ team_ID: ID });

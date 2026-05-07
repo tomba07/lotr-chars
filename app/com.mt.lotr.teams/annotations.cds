@@ -96,6 +96,29 @@ annotate service.Teams actions {
     );
 };
 
+annotate service.TeamMembers actions {
+    changeAllegiance(allegiance @(
+        Common.Label : 'New Allegiance',
+        Common.ValueList : {
+            CollectionPath : 'Allegiances',
+            Parameters     : [
+                { $Type : 'Common.ValueListParameterOut', LocalDataProperty : allegiance, ValueListProperty : 'code' },
+            ],
+        },
+    ));
+    assignMentor(mentorId @(
+        Common.Label : 'Mentor',
+        Common.ValueList : {
+            CollectionPath : 'Characters',
+            Parameters     : [
+                { $Type : 'Common.ValueListParameterOut',         LocalDataProperty : mentorId, ValueListProperty : 'ID'   },
+                { $Type : 'Common.ValueListParameterDisplayOnly', ValueListProperty : 'name' },
+                { $Type : 'Common.ValueListParameterDisplayOnly', ValueListProperty : 'race' },
+            ],
+        },
+    ));
+};
+
 annotate service.TeamMembers with {
     character @(
         Common.Text            : character.name,
@@ -118,6 +141,13 @@ annotate service.TeamMembers with @(
         Title          : { Value : character.name },
         Description    : { Value : role },
     },
+
+    UI.Identification : [
+        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.resurrect',        Label : 'Resurrect',         ![@UI.Hidden] : character.isAlive },
+        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.kill',             Label : 'Kill',              ![@UI.Hidden] : character.isDead  },
+        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.changeAllegiance', Label : 'Change Allegiance'                                    },
+        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.assignMentor',     Label : 'Assign Mentor'                                        },
+    ],
 
     UI.HeaderFacets : [
         { $Type : 'UI.ReferenceFacet', Target : '@UI.DataPoint#CharFame'   },

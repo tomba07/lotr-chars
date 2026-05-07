@@ -47,6 +47,11 @@ service LotrService @(path: '/lotr') {
 
   entity TeamMembers as projection on lotr.TeamMembers {
     *, character : redirected to Characters
+  } actions {
+    action resurrect()                          returns TeamMembers;
+    action kill()                               returns TeamMembers;
+    action changeAllegiance(allegiance : String) returns TeamMembers;
+    action assignMentor    (mentorId   : UUID)  returns TeamMembers;
   };
 
   // Convenience read-only view: Fellowship members only
