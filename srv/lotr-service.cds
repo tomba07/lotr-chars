@@ -9,7 +9,7 @@ service LotrService @(path: '/lotr') {
     ring   : redirected to Rings,
     case when status   = 'Alive' then 3 when status   = 'Dead' then 1 else 2 end as statusCriticality   : Integer,
     case when strength >= 60     then 3 when strength >= 40    then 2 else 1 end as strengthCriticality : Integer,
-    virtual null as fameRating : Decimal,
+    cast(fame as Double) / 20 as fameRating : Decimal,
     5   as fameMax    : Integer,
     100 as strengthMax: Integer,
   };
