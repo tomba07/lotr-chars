@@ -7,7 +7,7 @@ cds.on('bootstrap', (app) => {
 });
 
 if (require.main === module) {
-  cds.server();
+  cds.server({ in_memory: true });
 } else {
   module.exports = cds.server;
 }

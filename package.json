@@ -31,9 +31,6 @@
       "auth": {
         "kind": "dummy"
       }
-    },
-    "features": {
-      "in_memory_db": true
     }
   },
   "workspaces": [
