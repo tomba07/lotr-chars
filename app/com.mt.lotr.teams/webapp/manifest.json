@@ -39,7 +39,10 @@
     },
     "routing": {
       "config": {
-        "flexibleColumnLayout": { "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded" },
+        "flexibleColumnLayout": {
+          "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
+          "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+        },
         "routerClass": "sap.f.routing.Router"
       },
       "routes": [
@@ -52,6 +55,11 @@
           "pattern": "Teams({key}):?query:",
           "name": "TeamsObjectPage",
           "target": ["TeamsList", "TeamsObjectPage"]
+        },
+        {
+          "pattern": "Teams({key})/members({key2}):?query:",
+          "name": "TeamMembersObjectPage",
+          "target": ["TeamsList", "TeamsObjectPage", "TeamMembersObjectPage"]
         }
       ],
       "targets": {
@@ -87,11 +95,27 @@
           "options": {
             "settings": {
               "contextPath": "/Teams",
-              "editableHeaderContent": false
+              "editableHeaderContent": false,
+              "navigation": {
+                "members": { "detail": { "route": "TeamMembersObjectPage" } }
+              }
             }
           },
           "controlAggregation": "midColumnPages",
           "contextPattern": "/Teams({key})"
+        },
+        "TeamMembersObjectPage": {
+          "type": "Component",
+          "id": "TeamMembersObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/Teams/members",
+              "editableHeaderContent": false
+            }
+          },
+          "controlAggregation": "endColumnPages",
+          "contextPattern": "/Teams({key})/members({key2})"
         }
       }
     },

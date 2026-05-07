@@ -27,7 +27,13 @@ service LotrService @(path: '/lotr') {
   entity Address               as projection on lotr.Address;
 
   @odata.draft.enabled
-  entity Teams as projection on lotr.Teams;
+  entity Teams as projection on lotr.Teams {
+    *,
+    virtual null as totalStrength       : Integer,
+    virtual null as monthlyCost         : Integer,
+    virtual null as cohesion            : Integer,
+    virtual null as cohesionCriticality : Integer,
+  };
 
   entity TeamMembers as projection on lotr.TeamMembers {
     *, character : redirected to Characters

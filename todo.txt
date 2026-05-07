@@ -1,6 +1,5 @@
 - FE features to show off
  - variants
- - progress indicators
  - micro charts (in columns and header)
  - custom
   - map feature
