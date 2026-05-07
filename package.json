@@ -27,6 +27,9 @@
         "credentials": {
           "url": ":memory:"
         }
+      },
+      "auth": {
+        "kind": "dummy"
       }
     }
   },
