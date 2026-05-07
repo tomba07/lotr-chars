@@ -32,6 +32,13 @@ annotate service.Characters with @(
         Description    : { Value : description },
     },
 
+    UI.Identification : [
+        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.resurrect',        Label : 'Resurrect',         ![@UI.Hidden] : isAlive },
+        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.kill',             Label : 'Kill',              ![@UI.Hidden] : isDead  },
+        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.changeAllegiance', Label : 'Change Allegiance'                          },
+        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.assignMentor',     Label : 'Assign Mentor'                              },
+    ],
+
     // ─── Header Facets ───────────────────────────────────────────────
     UI.HeaderFacets : [
         { $Type : 'UI.ReferenceFacet', Target : '@UI.DataPoint#Fame'     },
@@ -155,6 +162,29 @@ annotate service.Characters with @(
         { $Type : 'UI.DataField', Value : description, Label : 'Description' },
     ],
 );
+
+annotate service.Characters actions {
+    changeAllegiance(allegiance @(
+        Common.Label : 'New Allegiance',
+        Common.ValueList : {
+            CollectionPath : 'Allegiances',
+            Parameters     : [
+                { $Type : 'Common.ValueListParameterOut', LocalDataProperty : allegiance, ValueListProperty : 'code' },
+            ],
+        },
+    ));
+    assignMentor(mentorId @(
+        Common.Label     : 'Mentor',
+        Common.ValueList : {
+            CollectionPath : 'Characters',
+            Parameters     : [
+                { $Type : 'Common.ValueListParameterOut',         LocalDataProperty : mentorId, ValueListProperty : 'ID'   },
+                { $Type : 'Common.ValueListParameterDisplayOnly', ValueListProperty : 'name' },
+                { $Type : 'Common.ValueListParameterDisplayOnly', ValueListProperty : 'race' },
+            ],
+        },
+    ));
+};
 
 annotate service.Weapons with @(
     UI.HeaderInfo : {

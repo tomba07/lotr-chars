@@ -1,3 +1,4 @@
+- hide technical fields
 - FE features to show off
  - variants
  - micro charts (in columns and header)

@@ -12,6 +12,13 @@ service LotrService @(path: '/lotr') {
     cast(fame as Double) / 20 as fameRating : Decimal,
     5   as fameMax    : Integer,
     100 as strengthMax: Integer,
+    case when status = 'Dead'  then true else false end as isDead  : Boolean,
+    case when status = 'Dead'  then false else true end as isAlive : Boolean,
+  } actions {
+    action resurrect()                                     returns Characters;
+    action kill()                                          returns Characters;
+    action changeAllegiance(allegiance : String)           returns Characters;
+    action assignMentor    (mentorId   : UUID)             returns Characters;
   };
 
   entity Weapons as projection on lotr.Weapons {
@@ -33,6 +40,9 @@ service LotrService @(path: '/lotr') {
     virtual null as monthlyCost         : Integer,
     virtual null as cohesion            : Integer,
     virtual null as cohesionCriticality : Integer,
+  } actions {
+    action disbandTeam();
+    action recruitCharacter(characterId : UUID, role : String(50));
   };
 
   entity TeamMembers as projection on lotr.TeamMembers {

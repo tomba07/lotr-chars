@@ -3,7 +3,7 @@ const cds = require('@sap/cds');
 module.exports = class LotrService extends cds.ApplicationService {
 
   async init() {
-    const { Characters, Teams } = this.entities;
+    const { Characters, Teams, TeamMembers } = this.entities;
 
     // Validate race on create/update
     this.before(['CREATE', 'UPDATE'], Characters, (req) => {
@@ -13,7 +13,62 @@ module.exports = class LotrService extends cds.ApplicationService {
       }
     });
 
-    // Compute aggregated team stats
+    // ── Character actions ────────────────────────────────────────────────
+
+    this.on('resurrect', Characters, async (req) => {
+      const key = req.params[0];
+      const ID  = key?.ID ?? key;
+      const char = await SELECT.one.from('lotr.Characters').where({ ID });
+      if (!char)                  return req.error(404, 'Character not found');
+      if (char.status !== 'Dead') return req.error(400, `${char.name} is not dead`);
+      await cds.db.run(UPDATE('lotr.Characters', ID).set({ status: 'Alive' }));
+      return SELECT.one(Characters, ID);
+    });
+
+    this.on('kill', Characters, async (req) => {
+      const key = req.params[0];
+      const ID  = key?.ID ?? key;
+      const char = await SELECT.one.from('lotr.Characters').where({ ID });
+      if (!char)                   return req.error(404, 'Character not found');
+      if (char.status === 'Dead')  return req.error(400, `${char.name} is already dead`);
+      await cds.db.run(UPDATE('lotr.Characters', ID).set({ status: 'Dead' }));
+      return SELECT.one(Characters, ID);
+    });
+
+    this.on('changeAllegiance', Characters, async (req) => {
+      const key = req.params[0];
+      const ID  = key?.ID ?? key;
+      const { allegiance } = req.data;
+      if (!allegiance) return req.error(400, 'Allegiance is required');
+      await cds.db.run(UPDATE('lotr.Characters', ID).set({ allegiance }));
+      return SELECT.one(Characters, ID);
+    });
+
+    this.on('assignMentor', Characters, async (req) => {
+      const key = req.params[0];
+      const ID  = key?.ID ?? key;
+      const { mentorId } = req.data;
+      if (mentorId === ID) return req.error(400, 'A character cannot mentor themselves');
+      await cds.db.run(UPDATE('lotr.Characters', ID).set({ mentor_ID: mentorId }));
+      return SELECT.one(Characters, ID);
+    });
+
+    // ── Team actions ─────────────────────────────────────────────────────
+
+    this.on('disbandTeam', Teams, async (req) => {
+      const { ID } = req.params[0];
+      await DELETE.from(TeamMembers).where({ team_ID: ID });
+    });
+
+    this.on('recruitCharacter', Teams, async (req) => {
+      const { ID } = req.params[0];
+      const { characterId, role } = req.data;
+      await INSERT.into(TeamMembers).entries({
+        ID: cds.utils.uuid(), team_ID: ID, character_ID: characterId, role: role || 'Member',
+      });
+    });
+
+    // ── Compute aggregated team stats ────────────────────────────────────
     this.after('READ', Teams, async (results) => {
       const rows = Array.isArray(results) ? results : [results];
       const ids  = rows.map(r => r.ID).filter(Boolean);

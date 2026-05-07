@@ -8,6 +8,11 @@ annotate service.Teams with @(
         Description    : { Value : description },
     },
 
+    UI.Identification : [
+        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.recruitCharacter', Label : 'Recruit Character' },
+        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.disbandTeam',      Label : 'Disband Team'      },
+    ],
+
     UI.HeaderFacets : [
         { $Type : 'UI.ReferenceFacet', Target : '@UI.DataPoint#TotalStrength' },
         { $Type : 'UI.ReferenceFacet', Target : '@UI.DataPoint#MonthlyCost'   },
@@ -73,6 +78,23 @@ annotate service.Teams with @(
         },
     ],
 );
+
+annotate service.Teams actions {
+    recruitCharacter(
+        characterId @(
+            Common.Label : 'Character',
+            Common.ValueList : {
+                CollectionPath : 'Characters',
+                Parameters     : [
+                    { $Type : 'Common.ValueListParameterOut',         LocalDataProperty : characterId, ValueListProperty : 'ID'   },
+                    { $Type : 'Common.ValueListParameterDisplayOnly', ValueListProperty : 'name' },
+                    { $Type : 'Common.ValueListParameterDisplayOnly', ValueListProperty : 'race' },
+                ],
+            },
+        ),
+        role @Common.Label : 'Role'
+    );
+};
 
 annotate service.TeamMembers with {
     character @(
