@@ -121,7 +121,7 @@ annotate service.Characters with @(
     // ─── List Report ─────────────────────────────────────────────────
     UI.LineItem : [
         { $Type : 'UI.DataField', Value : name,        Label : 'Name'        },
-        { $Type : 'UI.DataField', Value : fame,        Label : 'Fame'        },
+        { $Type : 'UI.DataFieldForAnnotation', Target : '@UI.DataPoint#Fame', Label : 'Fame' },
         { $Type : 'UI.DataField', Value : race,        Label : 'Race'        },
         { $Type : 'UI.DataField', Value : realm,       Label : 'Realm'       },
         { $Type : 'UI.DataField', Value : status,      Label : 'Status'      },
