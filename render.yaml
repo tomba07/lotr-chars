@@ -2,7 +2,7 @@ services:
   - type: web
     name: lotr-chars
     runtime: node
-    buildCommand: npm install
+    buildCommand: npm install && npx cds deploy --to sqlite
     startCommand: node server.js
     envVars:
       - key: NODE_ENV
