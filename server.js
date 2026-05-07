@@ -1,7 +1,9 @@
 const cds = require('@sap/cds');
 
-// When required by cds watch, export the server function.
-// When run directly (node server.js), start the server.
+cds.on('bootstrap', (app) => {
+  app.get('/', (req, res) => res.redirect('/com.mt.lotr.ui/index.html'));
+});
+
 if (require.main === module) {
   cds.server();
 } else {
