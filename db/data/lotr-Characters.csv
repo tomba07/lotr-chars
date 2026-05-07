@@ -1,25 +1,25 @@
-ID,name,race,realm,fellowship,fame,strength,status,allegiance,description,mentor_ID,ring_ID,initials
-11111111-0000-0000-0000-000000000001,Frodo Baggins,Hobbit,The Shire,true,95,35,Alive,Good,Ring-bearer and hero of the War of the Ring.,11111111-0000-0000-0000-000000000013,33333333-0000-0000-0000-000000000001,FB
-11111111-0000-0000-0000-000000000002,Samwise Gamgee,Hobbit,The Shire,true,85,42,Alive,Good,Frodo's loyal gardener and companion.,,,SG
-11111111-0000-0000-0000-000000000003,Gandalf,Wizard,Valinor,true,98,95,Alive,Good,Maia spirit and guide of the Fellowship.,,33333333-0000-0000-0000-000000000002,G
-11111111-0000-0000-0000-000000000004,Aragorn,Man,Gondor,true,97,92,Alive,Good,Heir of Isildur and rightful King of Gondor.,11111111-0000-0000-0000-000000000014,,AR
-11111111-0000-0000-0000-000000000005,Legolas,Elf,Mirkwood,true,88,87,Alive,Good,Prince of the Woodland Realm and skilled archer.,,,LE
-11111111-0000-0000-0000-000000000006,Gimli,Dwarf,Lonely Mountain,true,82,88,Alive,Good,Son of Glóin and stout-hearted member of the Fellowship.,,,GI
-11111111-0000-0000-0000-000000000007,Boromir,Man,Gondor,true,80,86,Dead,Good,Son of the Steward of Gondor and valiant warrior.,11111111-0000-0000-0000-000000000024,,BO
-11111111-0000-0000-0000-000000000008,Meriadoc Brandybuck,Hobbit,The Shire,true,75,38,Alive,Good,Merry - one of Frodo's closest friends.,,,MB
-11111111-0000-0000-0000-000000000009,Peregrin Took,Hobbit,The Shire,true,73,36,Alive,Good,Pippin - young and curious hobbit of the Fellowship.,,,PT
-11111111-0000-0000-0000-000000000010,Sauron,Maiar,Mordor,false,96,99,Dead,Evil,The Dark Lord and maker of the One Ring.,,,SA
-11111111-0000-0000-0000-000000000011,Galadriel,Elf,Lothlórien,false,90,82,Alive,Good,Lady of the Golden Wood and bearer of Nenya.,,33333333-0000-0000-0000-000000000003,GL
-11111111-0000-0000-0000-000000000012,Saruman,Wizard,Isengard,false,85,85,Dead,Evil,Head of the Istari order corrupted by the Ring's power.,,,SR
-11111111-0000-0000-0000-000000000013,Bilbo Baggins,Hobbit,The Shire,false,92,28,Alive,Good,Finder of the One Ring and author of There and Back Again.,11111111-0000-0000-0000-000000000003,,BB
-11111111-0000-0000-0000-000000000014,Elrond,Elf,Rivendell,false,88,84,Alive,Good,Half-elven lord and keeper of Vilya.,,33333333-0000-0000-0000-000000000004,EL
-11111111-0000-0000-0000-000000000015,Théoden,Man,Rohan,false,78,74,Dead,Good,King of Rohan who rode to the aid of Gondor.,,,TH
-11111111-0000-0000-0000-000000000016,Éowyn,Man,Rohan,false,83,76,Alive,Good,Shieldmaiden of Rohan who slew the Lord of the Nazgûl.,11111111-0000-0000-0000-000000000015,,EO
-11111111-0000-0000-0000-000000000017,Faramir,Man,Gondor,false,76,79,Alive,Good,Younger son of Denethor and Captain of Gondor.,11111111-0000-0000-0000-000000000003,,FA
-11111111-0000-0000-0000-000000000018,Treebeard,Ent,Fangorn,false,70,96,Alive,Good,Eldest of the Ents and shepherd of the trees.,,,TR
-11111111-0000-0000-0000-000000000019,Shelob,Orc,Cirith Ungol,false,65,88,Unknown,Evil,Great spider who guarded the pass of Cirith Ungol.,,,SH
-11111111-0000-0000-0000-000000000020,Gollum,Hobbit,Misty Mountains,false,90,22,Dead,Neutral,Former hobbit corrupted by centuries of Ring-bearing.,,,GO
-11111111-0000-0000-0000-000000000021,Nazgûl,Wraith,Mordor,false,80,83,Dead,Evil,Nine kings of Men enslaved by the One Ring.,,,NA
-11111111-0000-0000-0000-000000000022,Celeborn,Elf,Lothlórien,false,60,73,Alive,Good,Lord of the Golden Wood and husband of Galadriel.,,,CE
-11111111-0000-0000-0000-000000000023,Glorfindel,Elf,Rivendell,false,72,91,Alive,Good,Ancient elf-lord of great power who aided the Fellowship.,,,GF
-11111111-0000-0000-0000-000000000024,Denethor,Man,Gondor,false,74,62,Dead,Neutral,Steward of Gondor consumed by grief and the palantír.,,,DE
+ID,name,race,realm,fellowship,fame,strength,status,allegiance,description,mentor_ID,ring_ID
+11111111-0000-0000-0000-000000000001,Frodo Baggins,Hobbit,The Shire,true,95,35,Alive,Good,Ring-bearer and hero of the War of the Ring.,11111111-0000-0000-0000-000000000013,33333333-0000-0000-0000-000000000001
+11111111-0000-0000-0000-000000000002,Samwise Gamgee,Hobbit,The Shire,true,85,42,Alive,Good,Frodo's loyal gardener and companion.,,
+11111111-0000-0000-0000-000000000003,Gandalf,Wizard,Valinor,true,98,95,Alive,Good,Maia spirit and guide of the Fellowship.,,33333333-0000-0000-0000-000000000002
+11111111-0000-0000-0000-000000000004,Aragorn,Man,Gondor,true,97,92,Alive,Good,Heir of Isildur and rightful King of Gondor.,11111111-0000-0000-0000-000000000014,
+11111111-0000-0000-0000-000000000005,Legolas,Elf,Mirkwood,true,88,87,Alive,Good,Prince of the Woodland Realm and skilled archer.,,
+11111111-0000-0000-0000-000000000006,Gimli,Dwarf,Lonely Mountain,true,82,88,Alive,Good,Son of Glóin and stout-hearted member of the Fellowship.,,
+11111111-0000-0000-0000-000000000007,Boromir,Man,Gondor,true,80,86,Dead,Good,Son of the Steward of Gondor and valiant warrior.,11111111-0000-0000-0000-000000000024,
+11111111-0000-0000-0000-000000000008,Meriadoc Brandybuck,Hobbit,The Shire,true,75,38,Alive,Good,Merry - one of Frodo's closest friends.,,
+11111111-0000-0000-0000-000000000009,Peregrin Took,Hobbit,The Shire,true,73,36,Alive,Good,Pippin - young and curious hobbit of the Fellowship.,,
+11111111-0000-0000-0000-000000000010,Sauron,Maiar,Mordor,false,96,99,Dead,Evil,The Dark Lord and maker of the One Ring.,,
+11111111-0000-0000-0000-000000000011,Galadriel,Elf,Lothlórien,false,90,82,Alive,Good,Lady of the Golden Wood and bearer of Nenya.,,33333333-0000-0000-0000-000000000003
+11111111-0000-0000-0000-000000000012,Saruman,Wizard,Isengard,false,85,85,Dead,Evil,Head of the Istari order corrupted by the Ring's power.,,
+11111111-0000-0000-0000-000000000013,Bilbo Baggins,Hobbit,The Shire,false,92,28,Alive,Good,Finder of the One Ring and author of There and Back Again.,11111111-0000-0000-0000-000000000003,
+11111111-0000-0000-0000-000000000014,Elrond,Elf,Rivendell,false,88,84,Alive,Good,Half-elven lord and keeper of Vilya.,,33333333-0000-0000-0000-000000000004
+11111111-0000-0000-0000-000000000015,Théoden,Man,Rohan,false,78,74,Dead,Good,King of Rohan who rode to the aid of Gondor.,,
+11111111-0000-0000-0000-000000000016,Éowyn,Man,Rohan,false,83,76,Alive,Good,Shieldmaiden of Rohan who slew the Lord of the Nazgûl.,11111111-0000-0000-0000-000000000015,
+11111111-0000-0000-0000-000000000017,Faramir,Man,Gondor,false,76,79,Alive,Good,Younger son of Denethor and Captain of Gondor.,11111111-0000-0000-0000-000000000003,
+11111111-0000-0000-0000-000000000018,Treebeard,Ent,Fangorn,false,70,96,Alive,Good,Eldest of the Ents and shepherd of the trees.,,
+11111111-0000-0000-0000-000000000019,Shelob,Orc,Cirith Ungol,false,65,88,Unknown,Evil,Great spider who guarded the pass of Cirith Ungol.,,
+11111111-0000-0000-0000-000000000020,Gollum,Hobbit,Misty Mountains,false,90,22,Dead,Neutral,Former hobbit corrupted by centuries of Ring-bearing.,,
+11111111-0000-0000-0000-000000000021,Nazgûl,Wraith,Mordor,false,80,83,Dead,Evil,Nine kings of Men enslaved by the One Ring.,,
+11111111-0000-0000-0000-000000000022,Celeborn,Elf,Lothlórien,false,60,73,Alive,Good,Lord of the Golden Wood and husband of Galadriel.,,
+11111111-0000-0000-0000-000000000023,Glorfindel,Elf,Rivendell,false,72,91,Alive,Good,Ancient elf-lord of great power who aided the Fellowship.,,
+11111111-0000-0000-0000-000000000024,Denethor,Man,Gondor,false,74,62,Dead,Neutral,Steward of Gondor consumed by grief and the palantír.,,

@@ -14,7 +14,6 @@ entity Characters {
   status        : String(20)            @title: 'Status';
   allegiance    : Allegiance            @title: 'Allegiance';
   description   : String(500)           @title: 'Description';
-  initials      : String(5)             @title: 'Initials';
   mentor        : Association to Characters;
   ring          : Association to Rings;
   weapons       : Composition of many Weapons on weapons.character = $self;

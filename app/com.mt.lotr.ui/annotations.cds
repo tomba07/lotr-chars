@@ -30,7 +30,6 @@ annotate service.Characters with @(
         TypeNamePlural : 'Characters',
         Title          : { Value : name },
         Description    : { Value : description },
-        Initials       : initials,
     },
 
     // ─── Header Facets ───────────────────────────────────────────────
