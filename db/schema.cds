@@ -62,3 +62,17 @@ entity Address {
 
 entity Races       { key code : Race;       }
 entity Allegiances { key code : Allegiance; }
+
+entity Teams {
+  key ID          : UUID;
+  name            : String(100) not null @title: 'Team';
+  description     : String(300)          @title: 'Description';
+  members         : Composition of many TeamMembers on members.team = $self;
+}
+
+entity TeamMembers {
+  key ID          : UUID;
+  team            : Association to Teams;
+  character       : Association to Characters;
+  role            : String(50)           @title: 'Role';
+}

@@ -26,6 +26,13 @@ service LotrService @(path: '/lotr') {
   @readonly entity Allegiances as projection on lotr.Allegiances;
   entity Address               as projection on lotr.Address;
 
+  @odata.draft.enabled
+  entity Teams as projection on lotr.Teams;
+
+  entity TeamMembers as projection on lotr.TeamMembers {
+    *, character : redirected to Characters
+  };
+
   // Convenience read-only view: Fellowship members only
   @readonly
   view FellowshipMembers as

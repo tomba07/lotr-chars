@@ -1,0 +1,107 @@
+{
+  "_version": "1.82.0",
+  "sap.app": {
+    "id": "com.mt.lotr.teams",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": { "version": "0.0.1" },
+    "title": "Team Management",
+    "description": "Manage teams and their members",
+    "dataSources": {
+      "mainService": {
+        "uri": "/lotr/",
+        "type": "OData",
+        "settings": { "annotations": [], "odataVersion": "4.01" }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": { "desktop": true, "tablet": true, "phone": true }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.147.2",
+      "libs": { "sap.m": {}, "sap.ui.core": {}, "sap.fe.templates": {}, "sap.f": {} }
+    },
+    "contentDensities": { "compact": true, "cozy": true },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": { "bundleName": "com.mt.lotr.teams.i18n.i18n" }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": { "operationMode": "Server", "autoExpandSelect": true, "earlyRequests": true }
+      }
+    },
+    "routing": {
+      "config": {
+        "flexibleColumnLayout": { "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded" },
+        "routerClass": "sap.f.routing.Router"
+      },
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "TeamsList",
+          "target": ["TeamsList"]
+        },
+        {
+          "pattern": "Teams({key}):?query:",
+          "name": "TeamsObjectPage",
+          "target": ["TeamsList", "TeamsObjectPage"]
+        }
+      ],
+      "targets": {
+        "TeamsList": {
+          "type": "Component",
+          "id": "TeamsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Teams",
+              "variantManagement": "Page",
+              "navigation": {
+                "Teams": { "detail": { "route": "TeamsObjectPage" } }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "creationMode": { "name": "NewPage" }
+                  }
+                }
+              },
+              "initialLoad": "Enabled"
+            }
+          },
+          "controlAggregation": "beginColumnPages",
+          "contextPattern": ""
+        },
+        "TeamsObjectPage": {
+          "type": "Component",
+          "id": "TeamsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/Teams",
+              "editableHeaderContent": false
+            }
+          },
+          "controlAggregation": "midColumnPages",
+          "contextPattern": "/Teams({key})"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+      "type": "XML",
+      "async": true,
+      "id": "appRootView"
+    }
+  },
+  "sap.fiori": { "registrationIds": [], "archeType": "transactional" },
+  "sap.fe": { "app": { "enableLazyLoading": true } }
+}

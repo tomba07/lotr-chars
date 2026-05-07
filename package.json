@@ -38,6 +38,8 @@
     "app/*"
   ],
   "sapux": [
-    "app/com.mt.lotr.ui"
+    "app/com.mt.lotr.ui",
+    "app/com.mt.lotr.fellowship",
+    "app/com.mt.lotr.teams"
   ]
 }

@@ -18,7 +18,7 @@ annotate service.Characters with {
 };
 
 annotate service.Characters with @(
-    UI.SelectionFields : [race, allegiance],
+    UI.SelectionFields : [race, allegiance, fellowship],
 
     UI.PresentationVariant : {
         SortOrder      : [{ Property : fame, Descending : true }],

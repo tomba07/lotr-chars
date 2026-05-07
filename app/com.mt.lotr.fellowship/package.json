@@ -1,0 +1,10 @@
+{
+  "name": "com.mt.lotr.fellowship",
+  "version": "0.0.1",
+  "description": "Fellowship Management App",
+  "main": "webapp/index.html",
+  "devDependencies": {
+    "@ui5/cli": "^4.0.33",
+    "@sap/ux-ui5-tooling": "1"
+  }
+}
