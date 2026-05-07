@@ -14,8 +14,9 @@ module.exports = class LotrService extends cds.ApplicationService {
     });
 
     this.after('READ', Characters, each => {
-      each.statusCriticality = each.status === 'Alive' ? 3 : each.status === 'Dead' ? 1 : 2;
-      each.fameRating = Math.round(each.fame / 20);
+      each.statusCriticality   = each.status === 'Alive' ? 3 : each.status === 'Dead' ? 1 : 2;
+      each.strengthCriticality = each.strength >= 60 ? 3 : each.strength >= 40 ? 2 : 1;
+      each.fameRating          = Math.round(each.fame / 20);
     });
 
     await super.init();

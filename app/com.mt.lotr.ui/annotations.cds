@@ -23,18 +23,19 @@ annotate service.Characters with @(
     UI.DataPoint #Fame : {
         Value        : fameRating,
         Title        : 'Fame',
-        MaximumValue : 5,
+        MaximumValue : fameMax,
         Visualization: #Rating,
     },
     UI.DataPoint #Strength : {
         Value        : strength,
         Title        : 'Strength',
         MinimumValue : 0,
-        MaximumValue : 100,
+        MaximumValue : strengthMax,
+        Criticality  : strengthCriticality,
     },
 
     UI.Chart #Strength : {
-        ChartType         : #Bullet,
+        ChartType         : #Pie,
         Title             : 'Strength',
         Measures          : [strength],
         MeasureAttributes : [{
@@ -44,6 +45,8 @@ annotate service.Characters with @(
             DataPoint : '@UI.DataPoint#Strength',
         }],
     },
+
+
     UI.DataPoint #Status : {
         Value       : status,
         Title       : 'Status',
