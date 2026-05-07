@@ -18,6 +18,9 @@ service LotrService @(path: '/lotr') {
 
   entity Rings as projection on lotr.Rings;
 
+  @readonly entity Races       as projection on lotr.Races;
+  @readonly entity Allegiances as projection on lotr.Allegiances;
+
   // Convenience read-only view: Fellowship members only
   @readonly
   view FellowshipMembers as

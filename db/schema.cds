@@ -1,15 +1,18 @@
 namespace lotr;
 
+type Race      : String enum { Hobbit; Elf; Dwarf; Man; Wizard; Orc; Ent; Wraith; Maiar; };
+type Allegiance: String enum { Good; Evil; Neutral; };
+
 entity Characters {
   key ID        : UUID;
   name          : String(100) not null  @title: 'Name';
-  race          : String(50)            @title: 'Race';
+  race          : Race                  @title: 'Race';
   realm         : String(100)           @title: 'Realm';
   fellowship    : Boolean default false @title: 'Fellowship';
-  fame          : Integer                       @title: 'Fame';
-  strength      : Integer                       @title: 'Strength';
+  fame          : Integer               @title: 'Fame';
+  strength      : Integer               @title: 'Strength';
   status        : String(20)            @title: 'Status';
-  allegiance    : String(20)            @title: 'Allegiance';
+  allegiance    : Allegiance            @title: 'Allegiance';
   description   : String(500)           @title: 'Description';
   mentor        : Association to Characters;
   ring          : Association to Rings;
@@ -40,3 +43,6 @@ entity Rings {
   name            : String(100) not null  @title: 'Name';
   description     : String(300)           @title: 'Description';
 }
+
+entity Races       { key code : Race;       }
+entity Allegiances { key code : Allegiance; }

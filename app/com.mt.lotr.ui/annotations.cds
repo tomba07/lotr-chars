@@ -1,6 +1,25 @@
 using LotrService as service from '../../srv/lotr-service';
 
+annotate service.Characters with {
+  race @(
+    Common.ValueListWithFixedValues: true,
+    Common.ValueList: {
+      CollectionPath: 'Races',
+      Parameters: [{ $Type: 'Common.ValueListParameterOut', LocalDataProperty: race, ValueListProperty: 'code' }]
+    }
+  );
+  allegiance @(
+    Common.ValueListWithFixedValues: true,
+    Common.ValueList: {
+      CollectionPath: 'Allegiances',
+      Parameters: [{ $Type: 'Common.ValueListParameterOut', LocalDataProperty: allegiance, ValueListProperty: 'code' }]
+    }
+  );
+};
+
 annotate service.Characters with @(
+    UI.SelectionFields : [race, allegiance],
+
     UI.PresentationVariant : {
         SortOrder      : [{ Property : fame, Descending : true }],
         Visualizations : ['@UI.LineItem']
