@@ -16,9 +16,7 @@ module.exports = class LotrService extends cds.ApplicationService {
     this.after('READ', Characters, results => {
       const rows = Array.isArray(results) ? results : [results];
       for (const row of rows) {
-        row.statusCriticality   = row.status === 'Alive' ? 3 : row.status === 'Dead' ? 1 : 2;
-        row.strengthCriticality = row.strength >= 60 ? 3 : row.strength >= 40 ? 2 : 1;
-        row.fameRating          = Math.round(row.fame / 20);
+        row.fameRating = Math.round(row.fame / 20);
       }
     });
 

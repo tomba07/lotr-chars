@@ -7,11 +7,11 @@ service LotrService @(path: '/lotr') {
     *,
     mentor : redirected to Characters,
     ring   : redirected to Rings,
-    virtual null as statusCriticality   : Integer,
-    virtual null as strengthCriticality : Integer,
-    virtual null as fameRating          : Integer,
-    5   as fameMax      : Integer,
-    100 as strengthMax  : Integer,
+    case when status   = 'Alive' then 3 when status   = 'Dead' then 1 else 2 end as statusCriticality   : Integer,
+    case when strength >= 60     then 3 when strength >= 40    then 2 else 1 end as strengthCriticality : Integer,
+    virtual null as fameRating : Integer,
+    5   as fameMax    : Integer,
+    100 as strengthMax: Integer,
   };
 
   entity Weapons as projection on lotr.Weapons;
