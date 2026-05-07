@@ -3,7 +3,7 @@ services:
     name: lotr-chars
     runtime: node
     buildCommand: npm install
-    startCommand: npx cds deploy --to sqlite && node server.js
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
