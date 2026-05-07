@@ -7,6 +7,7 @@ entity Characters {
   realm         : String(100)           @title: 'Realm';
   fellowship    : Boolean default false @title: 'Fellowship';
   fame          : Integer                       @title: 'Fame';
+  strength      : Integer                       @title: 'Strength';
   status        : String(20)            @title: 'Status';
   allegiance    : String(20)            @title: 'Allegiance';
   description   : String(500)           @title: 'Description';

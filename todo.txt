@@ -1,13 +1,15 @@
-- deployment
-- fame column
-- admin screen
- - perform actions on them
-- custom content
-- features
+- FE features to show off
+ - variants
+ - progress indicators
+ - micro charts (in columns and header)
+ - custom
+  - map feature
+ - images / thumbnails
+ - actions
  - filters
  - sorting
- - actions
  - CRUD
  - draft
- - variants
- - 
+ 
+- admin screen
+ - perform actions on them

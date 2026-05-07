@@ -7,6 +7,8 @@ service LotrService @(path: '/lotr') {
     *,
     mentor : redirected to Characters,
     ring   : redirected to Rings,
+    virtual null as statusCriticality : Integer,
+    virtual null as fameRating        : Integer,
   };
 
   entity Weapons as projection on lotr.Weapons;

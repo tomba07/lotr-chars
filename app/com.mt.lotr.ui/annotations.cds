@@ -13,6 +13,43 @@ annotate service.Characters with @(
         Description    : { Value : description }
     },
 
+    // ─── Header Facets ───────────────────────────────────────────────
+    UI.HeaderFacets : [
+        { $Type : 'UI.ReferenceFacet', Target : '@UI.DataPoint#Fame'     },
+        { $Type : 'UI.ReferenceFacet', Target : '@UI.Chart#Strength'     },
+        { $Type : 'UI.ReferenceFacet', Target : '@UI.DataPoint#Status'   },
+    ],
+
+    UI.DataPoint #Fame : {
+        Value        : fameRating,
+        Title        : 'Fame',
+        MaximumValue : 5,
+        Visualization: #Rating,
+    },
+    UI.DataPoint #Strength : {
+        Value        : strength,
+        Title        : 'Strength',
+        MinimumValue : 0,
+        MaximumValue : 100,
+    },
+
+    UI.Chart #Strength : {
+        ChartType         : #Bullet,
+        Title             : 'Strength',
+        Measures          : [strength],
+        MeasureAttributes : [{
+            $Type     : 'UI.ChartMeasureAttributeType',
+            Measure   : strength,
+            Role      : #Axis1,
+            DataPoint : '@UI.DataPoint#Strength',
+        }],
+    },
+    UI.DataPoint #Status : {
+        Value       : status,
+        Title       : 'Status',
+        Criticality : statusCriticality,
+    },
+
     // ─── Field Groups ────────────────────────────────────────────────
     UI.FieldGroup #Identity : {
         $Type : 'UI.FieldGroupType',
@@ -23,6 +60,7 @@ annotate service.Characters with @(
             { $Type : 'UI.DataField', Value : status,     Label : 'Status'     },
             { $Type : 'UI.DataField', Value : allegiance, Label : 'Allegiance' },
             { $Type : 'UI.DataField', Value : fame,       Label : 'Fame'       },
+            { $Type : 'UI.DataField', Value : strength,   Label : 'Strength'   },
         ],
     },
 
