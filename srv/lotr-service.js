@@ -15,26 +15,6 @@ module.exports = class LotrService extends cds.ApplicationService {
 
     // ── Character actions ────────────────────────────────────────────────
 
-    this.on('resurrect', Characters, async (req) => {
-      const key = req.params[0];
-      const ID  = key?.ID ?? key;
-      const char = await SELECT.one.from('lotr.Characters').where({ ID });
-      if (!char)                  return req.error(404, 'Character not found');
-      if (char.status !== 'Dead') return req.error(400, `${char.name} is not dead`);
-      await cds.db.run(UPDATE('lotr.Characters', ID).set({ status: 'Alive' }));
-      return SELECT.one(Characters, ID);
-    });
-
-    this.on('kill', Characters, async (req) => {
-      const key = req.params[0];
-      const ID  = key?.ID ?? key;
-      const char = await SELECT.one.from('lotr.Characters').where({ ID });
-      if (!char)                   return req.error(404, 'Character not found');
-      if (char.status === 'Dead')  return req.error(400, `${char.name} is already dead`);
-      await cds.db.run(UPDATE('lotr.Characters', ID).set({ status: 'Dead' }));
-      return SELECT.one(Characters, ID);
-    });
-
     this.on('changeAllegiance', Characters, async (req) => {
       const key = req.params[0];
       const ID  = key?.ID ?? key;
@@ -60,22 +40,6 @@ module.exports = class LotrService extends cds.ApplicationService {
       const m = await SELECT.one.from('lotr.TeamMembers', ['character_ID']).where({ ID: memberID });
       return m?.character_ID;
     };
-
-    this.on('resurrect', TeamMembers, async (req) => {
-      const charID = await charIDofMember(req.params[0]);
-      const char   = await SELECT.one.from('lotr.Characters').where({ ID: charID });
-      if (!char)                  return req.error(404, 'Character not found');
-      if (char.status !== 'Dead') return req.error(400, `${char.name} is not dead`);
-      await cds.db.run(UPDATE('lotr.Characters', charID).set({ status: 'Alive' }));
-    });
-
-    this.on('kill', TeamMembers, async (req) => {
-      const charID = await charIDofMember(req.params[0]);
-      const char   = await SELECT.one.from('lotr.Characters').where({ ID: charID });
-      if (!char)                  return req.error(404, 'Character not found');
-      if (char.status === 'Dead') return req.error(400, `${char.name} is already dead`);
-      await cds.db.run(UPDATE('lotr.Characters', charID).set({ status: 'Dead' }));
-    });
 
     this.on('changeAllegiance', TeamMembers, async (req) => {
       const charID     = await charIDofMember(req.params[0]);

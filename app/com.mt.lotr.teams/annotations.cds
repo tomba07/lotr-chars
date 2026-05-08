@@ -143,10 +143,8 @@ annotate service.TeamMembers with @(
     },
 
     UI.Identification : [
-        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.resurrect',        Label : 'Resurrect',         ![@UI.Hidden] : character.isAlive },
-        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.kill',             Label : 'Kill',              ![@UI.Hidden] : character.isDead  },
-        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.changeAllegiance', Label : 'Change Allegiance'                                    },
-        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.assignMentor',     Label : 'Assign Mentor'                                        },
+        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.changeAllegiance', Label : 'Change Allegiance' },
+        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.assignMentor',     Label : 'Assign Mentor'     },
     ],
 
     UI.HeaderFacets : [

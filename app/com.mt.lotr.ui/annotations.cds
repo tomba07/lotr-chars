@@ -33,10 +33,8 @@ annotate service.Characters with @(
     },
 
     UI.Identification : [
-        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.resurrect',        Label : 'Resurrect',         ![@UI.Hidden] : isAlive },
-        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.kill',             Label : 'Kill',              ![@UI.Hidden] : isDead  },
-        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.changeAllegiance', Label : 'Change Allegiance'                          },
-        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.assignMentor',     Label : 'Assign Mentor'                              },
+        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.changeAllegiance', Label : 'Change Allegiance' },
+        { $Type : 'UI.DataFieldForAction', Action : 'LotrService.assignMentor',     Label : 'Assign Mentor'     },
     ],
 
     // ─── Header Facets ───────────────────────────────────────────────
